@@ -1,0 +1,66 @@
+# =============================================================================
+# MAHALAKSHMI HOSPITAL MANAGEMENT SYSTEM — 1-CLICK FREE CLOUD BLUEPRINT (Render)
+# Deploys PostgreSQL + Spring Boot Backend + React PWA Frontend online for free
+# =============================================================================
+
+databases:
+  - name: mahalakshmi-hms-db
+    databaseName: mahalakshmi_hms
+    user: hms_admin
+    plan: free
+
+services:
+  # 1. Spring Boot 3 Backend REST API (Docker)
+  - type: web
+    name: mahalakshmi-hms-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: APP_ENVIRONMENT
+        value: development
+      - key: DB_HOST
+        fromDatabase:
+          name: mahalakshmi-hms-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: mahalakshmi-hms-db
+          property: port
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: mahalakshmi-hms-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: mahalakshmi-hms-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: mahalakshmi-hms-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION_MS
+        value: "28800000"
+      - key: CORS_ALLOWED_ORIGINS
+        value: "*"
+
+  # 2. React + TypeScript + Tailwind PWA Frontend
+  - type: web
+    name: mahalakshmi-hms-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://mahalakshmi-hms-api.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

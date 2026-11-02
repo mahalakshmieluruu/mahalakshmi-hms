@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="description" content="Centralized Cloud & Multi-Device Hospital Management System for Mahalakshmi Hospital, Eluru, Andhra Pradesh 534002" />
+
+    <!-- Progressive Web App (PWA) & Multi-Device Support (Android, iOS/iPadOS, Windows, macOS) -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mahalakshmi HMS" />
+
+    <title>MAHALAKSHMI HOSPITAL — Centralized Cloud Hospital Management System (Eluru)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-['Inter',sans-serif]">
+    <div id="root">
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f172a;color:#f8fafc;font-family:sans-serif;padding:24px;text-align:center;">
+        <div>
+          <h1 style="font-size:20px;font-weight:800;color:#2dd4bf;margin-bottom:8px;">MAHALAKSHMI HOSPITAL — ELURU</h1>
+          <p style="font-size:14px;color:#cbd5e1;">Loading Hospital Management System Interface...</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      if ('serviceWorker' in navigator && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(r) { r.unregister(); });
+        });
+        if (window.caches) {
+          caches.keys().then(function(keys) {
+            keys.forEach(function(k) { caches.delete(k); });
+          });
+        }
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

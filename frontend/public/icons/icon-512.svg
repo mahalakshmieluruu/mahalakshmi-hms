@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0f766e"/>
+  <rect x="36" y="36" width="440" height="440" rx="72" fill="#115e59" stroke="#5eead4" stroke-width="8"/>
+  <path d="M216 112h80v104h104v80H296v104h-80V296H112v-80h104V112z" fill="#ffffff"/>
+  <text x="256" y="445" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#ccfbf1" text-anchor="middle">MAHALAKSHMI HMS</text>
+</svg>

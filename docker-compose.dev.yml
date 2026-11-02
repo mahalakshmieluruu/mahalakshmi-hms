@@ -1,0 +1,11 @@
+# ============================================================================
+# DEVELOPMENT OVERRIDE (docker-compose -f docker-compose.yml -f docker-compose.dev.yml up)
+# ============================================================================
+services:
+  backend:
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8080:8080"
+    networks:
+      - hms_public

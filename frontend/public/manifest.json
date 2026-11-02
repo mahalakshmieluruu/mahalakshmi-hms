@@ -1,0 +1,26 @@
+{
+  "name": "Mahalakshmi Hospital Management System (Eluru)",
+  "short_name": "Mahalakshmi HMS",
+  "description": "Centralized Cloud & Multi-Device Hospital Management Platform for Mahalakshmi Hospital, R.R.Pet Main Road, Eluru, AP 534002",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#0f766e",
+  "categories": ["medical", "health", "productivity", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
